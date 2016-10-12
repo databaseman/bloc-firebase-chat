@@ -1,0 +1,9 @@
+<div class="auth-forms">
+    <h1>Registered Users</h1>
+    <form ng-submit="usersCtrl.register(usersCtrl.newUserName, usersCtrl.newEmail,usersCtrl.newPassword)">
+        <input type="text"  ng-model="usersCtrl.newName" placeholder="Screen Name" class="form-control"><br>
+        <input type="email" ng-model="usersCtrl.newEmail" placeholder="Email" class="form-control"><br>
+        <input type="password" ng-model="usersCtrl.newPassword" placeholder="Password" class="form-control"><br>
+        <input type="submit" value="Register" />
+    </form>
+</div>

@@ -1,17 +1,20 @@
 (function () {
-      function RoomCtrl(Room) {
+      function RoomsCtrl(Room) {
           this.allrooms=Room.getAll();
           this.addRoom = function(roomName) {
-              Room.add({name: roomName});
+              Room.addRoom({name: roomName});
               this.newRoomName = '';
           };
           this.deleteRoom = function(roomName) {
-              Room.delete({name: roomName});
+              Room.deleteRoom({name: roomName});
               this.roomName = '';
+          };
+          this.addUser = function( roomName, userName ){
+              Room.addUser( {name: roomName}, {user: userName });
           };
     }
 
     angular
         .module('blocChat')
-        .controller('RoomCtrl', ['Room', RoomCtrl ] );
+        .controller('RoomsCtrl', ['Room', RoomsCtrl ] );
 })();
