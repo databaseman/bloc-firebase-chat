@@ -1,5 +1,5 @@
 (function () {
-    function Users($firebaseArray, $firebaseAuth, Room) {
+    function Users( $firebaseArray, $firebaseAuth, Room) {
         var ref = firebase.database().ref().child("rooms");
         var rooms = $firebaseArray(ref);
         var Users = {};
@@ -10,7 +10,6 @@
                 var errorMessage = error.message;
                 console.log(error.message);
             });
-
         };
 
         Users.login = function (email, password) {

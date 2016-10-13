@@ -1,0 +1,16 @@
+<div>
+    <h1>Chat Rooms</h1>
+    <ul>
+        <li ng-repeat="room in roomsCtrl.allrooms">
+            <h2>{{room.roomName}}</h2>
+        </li>
+    </ul>
+    <div>
+        <input type="button" value="Add Room" ng-click="roomsCtrl.addRoom(roomsCtrl.newRoomName)">
+        <input type="text" ng-model="roomsCtrl.newRoomName">
+    </div>
+    <div>
+        <input type="button" value="Delete Room" ng-click="roomsCtrl.deleteRoom(roomsCtrl.roomName)">
+        <input type="text" ng-model="roomsCtrl.roomName">
+    </div>
+</div>

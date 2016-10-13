@@ -14,7 +14,6 @@
                 users: [ {name: 'zzzzz', loggedIn: false, loggedInTime: -1}],
                 messages: [{timeCreated: -1, username:'zzzzz', message: 'zzzzz'} ]
             };
-            console.log( newRoom );
             rooms.$add(newRoom);
         }
 

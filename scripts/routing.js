@@ -24,6 +24,11 @@
                 url: '/',
                 controller: 'UsersCtrl as usersCtrl',
                 templateUrl: '/templates/login.html'
+            })
+            .state('Main', {
+                url: '/templates/main.html',
+                controller: 'RoomsCtrl as roomsCtrl',
+                templateUrl: '/templates/main.html'
             });
     }
 
