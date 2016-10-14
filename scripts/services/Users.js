@@ -1,5 +1,5 @@
 (function () {
-    function Users( $firebaseArray, $firebaseAuth, Room) {
+    function Users( $firebaseArray, $firebaseAuth) {
         var ref = firebase.database().ref().child("rooms");
         var rooms = $firebaseArray(ref);
         var Users = {};
@@ -33,5 +33,5 @@
 
     angular
         .module('blocChat')
-        .factory('Users', ['$firebaseArray', '$firebaseAuth', 'Room', Users]);
+        .factory('Users', ['$firebaseArray', '$firebaseAuth', Users]);
 })();

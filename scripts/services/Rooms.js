@@ -33,7 +33,9 @@
         };
         
         Room.addUser = function (room, user) {
-                console.log( "in addUser");
+            console.log( "in addUser");
+            console.log( room );
+            console.log( user );
         }
     
         return Room;
