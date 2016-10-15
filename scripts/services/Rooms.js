@@ -9,6 +9,19 @@
         };
 
         Room.addRoom = function (room) {
+            var newRoom = {
+                roomName: room.name,
+                users: [{
+                    name: 'zzzzz',
+                    loggedIn: false,
+                    loggedInTime: -1
+                }],
+                messages: [{
+                    timeCreated: -1,
+                    username: 'zzzzz',
+                    message: 'zzzzz'
+                }]
+            };
             rooms.$add(newRoom);
         }
 
