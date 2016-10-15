@@ -3,7 +3,8 @@
         this.register = function (newName, newEmail, newPassword) {
             User.register(newEmail, newPassword);
             var date = new Date();
-            User.add( { roomName: 'Welcome / General', email: this.newEmail });
+            var newUser= {email: this.newEmail, loggedIn: true, loggedInTime: date };
+            User.add({ roomName: 'Welcome / General' }, newUser );
             this.newName = ''; // variables from register.html
             this.newEmail = '';
             this.newPassword = '';
