@@ -9,17 +9,13 @@
               Room.deleteRoom({name: roomName});
               this.roomName = '';
           };
-          this.addUser = function( roomName, userName ){
-              Room.addUser( {name: roomName}, {user: userName });
+          this.addUser = function( roomName, email ){
+              Room.addUser( {name: roomName}, {email: email, loggedIn: false, loggedInTime: -1} );
           };
-
-            this.allUsersInRoom = ['m1@yahoo.com', 'm2@yahoo.com', 'm3@yahoo.com'];
-         //     this.allUsersInRoom = function(roomName ) {
-        //      alert( "in RoomCtrl this.allUsersInRoom");
-        //        return ['m1@yahoo.com', 'm2@yahoo.com', 'm3@yahoo.com' 'm4@yahoo.com'];  
-              // return Users.getAllUsersInRoom( roomName );
-        //  }
-        
+          this.addMessage = function (roomName, newMessage) {
+              var currentUser=User.getCurrentUser();
+              Room.addMessage( roomName, currentUser.email, newMessage );
+          }  
     }
 
     angular

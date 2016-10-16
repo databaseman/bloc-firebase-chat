@@ -3,12 +3,14 @@
     <div ng-repeat="room in roomsCtrl.allrooms">
         <h2>{{room.roomName}}</h2>
         <ul>
-            <li ng-repeat="user in roomsCtrl.allUsersInRoom">
-                <h4>{{user}}</h4>
+            <li ng-repeat="user in room.users">
+                <h4>{{user.email}}</h4>
             </li>
         </ul>
+        <div ng-repeat="message in room.messages">
+            <p>{{message.timeCreated}} {{message.email}} {{message.message}}</p>
+        </div>
     </div>
-
 
     <div>
         <input type="button" value="Add Room" ng-click="roomsCtrl.addRoom(roomsCtrl.newRoomName)">
@@ -18,4 +20,17 @@
         <input type="button" value="Delete Room" ng-click="roomsCtrl.deleteRoom(roomsCtrl.roomName)">
         <input type="text" ng-model="roomsCtrl.roomName">
     </div>
+
+    <div class="auth-forms">
+        <h1>Messages</h1>
+        <form ng-submit="roomsCtrl.addMessage(roomName, newMessage)">
+            <input type="text" ng-model="newMessage" placeholder="Message" class="form-control"><br>
+            <input type="text" ng-model="roomName" placeholder="Room" class="form-control"><br>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+
+
+
+
 </div>

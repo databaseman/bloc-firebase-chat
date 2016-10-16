@@ -1,5 +1,5 @@
 (function () {
-    function User( $firebaseArray, $firebaseAuth) {
+    function User($firebaseArray, $firebaseAuth) {
         //var userRef = firebase.database().ref().child("users");
         //var users = $firebaseArray(userRef);
         var ref = firebase.database().ref().child("rooms");
@@ -20,24 +20,38 @@
                 console.log(error.message);
             });
         };
-        
+
         User.add = function (roomName, user) {
-        //    users.$add(user);
-            var numberOfUsers =rooms[1].users.length;
-            var tempUsers=[];
-            for ( var i=0; i<numberOfUsers; i++){
-                tempUsers.push(rooms[1].users[i]);
+            var numberOfUsers = rooms[0].users.length;
+            var tempUsers = [];
+            for (var i = 0; i < numberOfUsers; i++) {
+                tempUsers.push(rooms[0].users[i]);
             }
             tempUsers.push(user);
-            rooms[1].users=tempUsers;
-            rooms.$save(1);
+            rooms[0].users = tempUsers;
+            rooms.$save(0);
         };
-        
+
         User.getAllUsersInRoom = function () {
-            console.log( "before return from getAllUsersInRoom");
-            console.log( users );
+            console.log("before return from getAllUsersInRoom");
+            console.log(users);
             return users;
         };
+
+        User.getCurrentUser = function () {
+            var user = firebase.auth().currentUser;
+            if (user != null) {
+                return user;
+            }
+            /* name = user.displayName; email = user.email; photoUrl = user.photoURL; uid = user.uid; 
+             // The user's ID, unique to the Firebase project. Do NOT use
+             // this value to authenticate with your backend server, if
+             // you have one. Use User.getToken() instead.
+             */
+            console.log( "Error!  No current user");
+        }
+
+
         return User;
     }
 

@@ -11,17 +11,16 @@
             var newRoom = {
                 roomName: room.name,
                 users: [{
-                    name: 'zzzzz',
+                    email: 'zzzzz@yahoo.com',
                     loggedIn: false,
                     loggedInTime: -1
                 }],
                 messages: [{
                     timeCreated: -1,
-                    username: 'zzzzz',
+                    email: 'zzzzz@yahoo.com',
                     message: 'zzzzz'
                 }]
             };
-            rooms.$add(newRoom);
         }
 
         Room.getRoom = function (room) {
@@ -38,6 +37,19 @@
         Room.deleteRoom = function (room) {
             rooms.$remove(Room.getRoom(room));
         };
+
+        Room.addMessage = function ( roomName, email, newMessage ) {
+            var numberOfMessages =rooms[0].messages.length;
+            var tempMessages=[];
+            var date = new Date();
+            var message={timeCreated: date.toString(), email: email, message: newMessage };
+            for ( var i=0; i<numberOfMessages; i++){
+                tempMessages.push(rooms[0].messages[i]);
+            }
+            tempMessages.push(message);
+            rooms[0].messages=tempMessages;
+            rooms.$save(0);
+        }
         
         Room.addUser = function (room, user) {
             console.log( "in Rooms.js addUser");
