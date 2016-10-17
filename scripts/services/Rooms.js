@@ -21,6 +21,7 @@
                     message: 'zzzzz'
                 }]
             };
+            rooms.$add( newRoom );
         }
 
         Room.getRoom = function (room) {
